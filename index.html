@@ -49,13 +49,6 @@
     accessToken: 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw'
   }).addTo(map);
 
-
-	L.tileLayer('http://tiles.mapc.org/trailmap-onroad/{z}/{x}/{y}.png',
-	{
-	maxZoom: 17,
-	minZoom: 9
-	}).addTo(map); 
-	  
   // Add Neighborhood Boundaries
   $.getJSON("neighborhoods.geojson",function(hoodData){
   L.geoJson( hoodData  , {
@@ -75,7 +68,13 @@
     }
   }  ).addTo(map);
 });
-
+	  
+	L.tileLayer('http://tiles.mapc.org/trailmap-onroad/{z}/{x}/{y}.png',
+	{
+	maxZoom: 17,
+	minZoom: 9
+	}).addTo(map); 
+	  
   // Here come the rats
   $.getJSON("rodents.geojson",function(data){
       var ratIcon = L.icon({
